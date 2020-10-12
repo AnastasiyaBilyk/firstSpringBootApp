@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+
+    private final HelloService service;
+
     @Autowired
-    private HelloService service;
+    public HelloController(HelloService service) {
+        this.service = service;
+    }
 
     @ApiOperation(value = "Returns greeting for running application.")
     @GetMapping("/hello")
